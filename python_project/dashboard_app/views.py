@@ -9,7 +9,11 @@ def dashboard(request):
 
 #function for '<int:city_id>/' route - Reina
 def city_dashboard(request, city_id):
-    return render(request, 'city_dashboard.html', city_id)
+    context = {
+        "all_cities": City.objects.all(),
+        "city": City.objects.get(id=city_id), 
+    }
+    return render(request, 'city_dashboard.html', context)
 
 #function for 'profile/<int:user_id>/' route - Karam
 def show_profile(request, user_id):
