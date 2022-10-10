@@ -12,10 +12,10 @@ class ActivityManager(models.Manager):
         if not postData['location']:
             errors['location'] = 'Location is required!'
 
-        if not postData['desc']:
-            errors['desc'] = 'Description is required!'
-        if len(postData['desc']) < 10:
-            errors['desc'] = 'Description should be at least ten characters!'
+        if not postData['description']:
+            errors['description'] = 'Description is required!'
+        if len(postData['description']) < 10:
+            errors['description'] = 'Description should be at least ten characters!'
 
         if not postData['price']:
             errors['price'] = 'Price is required! It can be zero though.'

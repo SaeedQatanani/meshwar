@@ -9,4 +9,5 @@ urlpatterns = [
     path('show/<int:activity_id>/', views.show_activity),
     path('edit/<int:activity_id>/', views.edit_activity),
     path('about/', views.about_us),
+    path('create/', views.create_activity),
 ]
