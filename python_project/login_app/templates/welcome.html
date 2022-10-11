@@ -4,10 +4,62 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Poppins:300,400,500,700" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="{% static 'css/welcome.css' %}" rel="stylesheet">
+    <title>Welcome</title>
 </head>
 <body>
-    <h1>Welcome</h1>
-    <button id="button" class="btn btn-primary" onmouseover="addShadow(this)" onmouseleave="removeShadow(this)"><a href="/login_reg/">Start your adventure</a></button>
+    <!-- ======= Hero Section ======= -->
+    <section id="hero">
+        <div class="hero-container" data-aos="zoom-in" data-aos-delay="100">
+            <div id="logo">
+                <img src="{% static 'images/logo.png' %}" alt="test">
+            </div>
+        <h1>Welcome to Meshwar</h1>
+        <h2>Slogan</h2>
+        <a href="/login_reg/" class="btn-get-started">Start your adventure</a>
+        </div>
+    </section><!-- End Hero Section -->
+
+    <main id="main">
+        <!-- ======= About Section ======= -->
+        <section id="about">
+        <div class="container" data-aos="fade-up">
+            <div class="row about-container"></div>
+            <h3>About:</h3>
+            <p>Here in Palestine, when you're bored and looking for something to do, the usual things people everywhere else may think of, like going to the cinema, or going to the beach, are usually out of reach. Also, in each city, there are many hidden gems, and places only people from the city know about.
+                Our idea is to provide a platform for Palestinians to share and learn about different events in their area, or an area they are visiting, and to get new ideas about activities they can do anytime. 
+            </p>
+            <h3>Group members:</h3>
+            <ul>
+                <li>Imas Zubaidia </li>
+                <li>Karam Taha</li>
+                <li>Reina Handal</li>
+                <li>Saeed Qatanani</li>
+            </ul>
+        </div>
+        </section><!-- End About Section -->
+    </main><!-- End #main -->
+
+    <!-- ======= Footer ======= -->
+    <footer id="footer">
+        <div class="footer-top">
+        <div class="container"></div>
+        </div>
+        <div class="container">
+        <div class="copyright">
+            &copy; Copyright <strong>Meshwar</strong>. All Rights Reserved
+        </div>
+        </div>
+    </footer><!-- End Footer -->
+
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+    <!-- Template Main JS File -->
+    <script src="{% static 'js/welcome.js' %}"></script>
+    <!-- <button id="button" class="btn btn-primary" onmouseover="addShadow(this)" onmouseleave="removeShadow(this)"><a href="/login_reg/">Start your adventure</a></button> -->
 </body>
 </html>
