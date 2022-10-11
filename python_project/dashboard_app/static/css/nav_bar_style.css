@@ -1,0 +1,36 @@
+* {
+    font-family: 'Open Sans', sans-serif;
+}
+.navbar {
+    width: 100%;
+    background-color:#10316B ;
+}
+.navbar-brand,.nav-item a {
+    color: white;
+}
+.navbar-brand:hover,.nav-item a:hover {
+    color: #E0FF4F;
+}
+button.btn{
+    margin-right: 20px;
+}
+.logout{
+    color: white;
+    margin-right: 20px;
+    text-decoration: none;
+}
+.logout:hover{
+    color: #E0FF4F;
+    text-decoration: none;
+}
+.dropdown-menu a{
+    color: #10316B;
+}
+.dropdown-menu a:hover {
+    color: #10316B;
+}
+.logo img{
+    height: 60px;
+    margin-right: 20px;
+    margin-left: 20px;
+}
