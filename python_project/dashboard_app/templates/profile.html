@@ -55,26 +55,24 @@
         </div>
     </nav>
       <header>
-        <h1><span>Welcome,</span> <span>{{user.first_name}} {{user.last_name}}</span></h1>
+        <h1><span>Welcome, </span><span>{{user.first_name}} {{user.last_name}}</span></h1>
       </header>
       <div>
         <h2>Your Activities</h2>
       </div>
         <main>
-            <div class="row ">
+            <div class="container all-activities ">
               {% for activity in user_activities %}
-                <div class="col-sm-4">
                   <div class="card">
                     <div class="card-body">
                       <h5 class="card-title">{{ activity.title }}</h5>
+                      <h6 class="card-subtitle mb-2">Added by: {{ activity.added_by.first_name }} {{ activity.added_by.last_name }}</h6>
                       <div class="desc">
                         <p class="card-text">{{ activity.desc }}</p>
                       </div>
-                      <a href="/dashboard/show/{{activity.id}}/" class="btn">View</a>
-                      <a href="/dashboard/delete/{{activity.id}}/" class="btn">Delete</a>
+                      <a href="/dashboard/show/{{activity.id}}/" class="card-link">View</a>
                     </div>
                   </div>
-                </div>
               {% endfor %}
             </div>
         </main>
