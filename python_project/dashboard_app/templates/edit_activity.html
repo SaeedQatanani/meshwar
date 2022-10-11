@@ -58,7 +58,7 @@
         <div class="container add-activity-form">
             <h2 class="text-center">Edit Activity</h2>
             <div class="container">
-                <form action="/dashboard/update/" method="post">
+                <form action="/dashboard/update/{{activity.id}}/" method="post">
                     {% csrf_token %}
                     <div class="mb-3">
                         <label for="title">Title</label>
