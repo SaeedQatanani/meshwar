@@ -13,23 +13,25 @@ body{
 
 h1{
     margin-top: 20px;
-    color: #10316B;
+    color: #326B9A;
     font-weight: bold;
+    display: flex;
+    flex-direction: column;
 }
 
 h2{
-    color: #10316B;
+    color: #326B9A;
     margin-top: 20px;
 }
 
 h5{
-    color: #10316B;
+    color: #326B9A;
     font-weight: bold;
 }
 
 a{
     text-decoration: none;
-    color: #10316B;
+    color: #326B9A;
 }
 
 header{
@@ -72,6 +74,30 @@ content{
     color: rgb(56, 56, 246);
 }
 
-.card-body a:last-child{
-    color: rgb(255, 55, 55);
+
+.card {
+    width: 25rem;
+    margin: 1%;
+}
+@media all and (max-width: 1000px) {
+    .all-activities {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+    }
+    .card {
+        width: 90%;
+        margin: 1%;
+    }
+}
+
+.desc {
+    height: 50px;
+    white-space: wrap; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.card-link {
+    line-height: 40px;
 }
