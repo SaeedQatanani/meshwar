@@ -100,18 +100,18 @@
                     <button type="submit" class="btn btn-primary">Create</button>
                 </div>
             </form>
+            <footer>
+                {% if messages %}
+                <div class="alert alert-danger" role="alert">
+                    <ul class="messages">
+                        {% for message in messages %}
+                            <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                {% endif %}
+            </footer>
         </div>
-        <footer>
-            {% if messages %}
-            <div class="alert alert-danger" role="alert">
-                <ul class="messages">
-                    {% for message in messages %}
-                        <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-                    {% endfor %}
-                </ul>
-            </div>
-            {% endif %}
-        </footer>
     </main>
 </body>
 </html>
