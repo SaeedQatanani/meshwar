@@ -37,3 +37,21 @@ button.btn{
     margin-right: 20px;
     margin-left: 20px;
 }
+/* footer styling */
+footer {
+    background-color: #0F316B;
+    height: fit-content;
+}
+.social-media {
+    padding: 10px;
+}
+.copyright {
+    background-color: #0F316B;
+    padding: 5px;
+}
+.copyright p {
+    font-size: 0.7rem;
+}
+.social-icon {
+    width: 20px;
+}
