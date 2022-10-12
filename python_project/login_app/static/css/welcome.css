@@ -163,7 +163,8 @@ h6 {
 
 #hero h1 {
   margin: 30px 0 10px 0;
-  margin-top: 200px;
+  margin-top: 150px;
+  margin-bottom: 50px;
   font-size: 48px;
   font-weight: 700;
   line-height: 56px;
@@ -180,7 +181,7 @@ h6 {
 
 #hero h2 {
   color: #eee;
-  margin-bottom: 50px;
+  margin-bottom: 20px;
   font-size: 24px;
 }
 
@@ -196,13 +197,14 @@ h6 {
   font-family: "Poppins", sans-serif;
   text-transform: uppercase;
   font-weight: 500;
-  font-size: 16px;
+  font-size: 20px;
   letter-spacing: 1px;
   display: inline-block;
   padding: 8px 28px;
   border-radius: 50px;
   transition: 0.5s;
   margin: 10px;
+  margin-top: 80px;
   border: 2px solid #fff;
   color: #fff;
 }
