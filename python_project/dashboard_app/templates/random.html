@@ -5,70 +5,38 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Choose your adventure</title>
+    {% load static %}
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
-    <style>
-        * {
-            margin-bottom: 20px;
-        }
-        body {
-            background-color: #f5f5f5;
-        }
-        main {
-            margin: 5%;
-        }
-        h2, h5 {
-            color: #10316B;
-        }
-        button {
-            background: url('images/random.png');
-            background-position:center;
-            background-repeat:no-repeat;
-            background-size: contain;
-            width: 400px;
-            height: 150px;
-        }
-        .btn-primary:hover {
-            background-color:#FFCD38;
-            border: none;
-        }
-        .btn-primary, .btn-primary:active, .btn-primary:visited {
-            background-color: #FF4949;
-            border: none;
-        }
-        .form-control {
-            width: fit-content;
-            margin: 0 auto;
-        }
-        .card {
-            margin: 0 auto;
-        }
-    </style>
+    <link rel="stylesheet" href="{% static 'css/random_style.css' %}">
 </head>
 <body>
     <main>
         <div class="container text-center">
             <h2>Let us choose your adventure:</h2>
-            <form action="/random/" method="post">
+            <form action="/dashboard/random/get/" method="post">
+                {% csrf_token %}
                 <div class="form-group">
                     <label for="city">Pick a city:</label>
                     <select class="form-control" name="city" id="city">
                         {% for city in all_cities %}
-                        <option value="{{city.id}}">City name</option>
+                        <option value="{{city.id}}">{{ city.name }}</option>
                         {% endfor %}
                     </select>
                 </div>
-                <button type="button" class="btn btn-primary btn-lg"></button>
+                <button type="submit" class="btn btn-primary btn-lg"></button>
             </form>
         </div>
+        {% if random_activity %}
         <div class="card" style="width: 25rem;">
             <div class="card-body">
-                <h5 class="card-title">Activity Title</h5>
-                <h6 class="card-subtitle mb-2 text-muted">Added by: creator</h6>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="/show/{{random_activity.id}}/" class="card-link">View</a>
+                <h5 class="card-title">{{ random_activity.title }}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">Added by: {{ random_activity.added_by.first_name }} {{ random_activity.added_by.last_name }}</h6>
+                <p class="card-text">{{ random_activity.desc }}</p>
+                <a href="/dashboard/show/{{random_activity.id}}/" class="card-link">View</a>
             </div>
         </div>
+        {% endif %}
     </main>
 </body>
 </html>

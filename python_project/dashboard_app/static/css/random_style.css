@@ -1,0 +1,35 @@
+* {
+    margin-bottom: 20px;
+}
+body {
+    background-color: #f5f5f5;
+}
+main {
+    margin: 5%;
+}
+h2, h5 {
+    color: #10316B;
+}
+button {
+    background: url(../../static/images/random.png);
+    background-position:center;
+    background-repeat:no-repeat;
+    background-size: contain;
+    width: 400px;
+    height: 150px;
+}
+.btn-primary:hover {
+    background-color:#FFCD38;
+    border: none;
+}
+.btn-primary, .btn-primary:active, .btn-primary:visited {
+    background-color: #FF4949;
+    border: none;
+}
+.form-control {
+    width: fit-content;
+    margin: 0 auto;
+}
+.card {
+    margin: 0 auto;
+}

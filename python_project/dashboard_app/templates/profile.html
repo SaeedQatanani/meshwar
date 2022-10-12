@@ -57,43 +57,27 @@
             </div>
         </div>
     </nav>
-      <header>
+    <header>
         <h1><span>Welcome, </span><span>{{user.first_name}} {{user.last_name}}</span></h1>
-      </header>
-      <div>
+    </header>
+    <div>
         <h2>Your Activities</h2>
-      </div>
+    </div>
         <main>
             <div class="container all-activities ">
-              {% for activity in user_activities %}
-                  <div class="card">
+            {% for activity in user_activities %}
+                <div class="card">
                     <div class="card-body">
-                      <h5 class="card-title">{{ activity.title }}</h5>
-                      <h6 class="card-subtitle mb-2">Added by: {{ activity.added_by.first_name }} {{ activity.added_by.last_name }}</h6>
-                      <div class="desc">
-                        <p class="card-text">{{ activity.desc }}</p>
-                      </div>
-                      <a href="/dashboard/show/{{activity.id}}/" class="card-link">View</a>
+                        <h5 class="card-title">{{ activity.title }}</h5>
+                        <h6 class="card-subtitle mb-2">Added by: {{ activity.added_by.first_name }} {{ activity.added_by.last_name }}</h6>
+                        <div class="desc">
+                            <p class="card-text">{{ activity.desc }}</p>
+                        </div>
+                        <a href="/dashboard/show/{{activity.id}}/" class="card-link">View</a>
                     </div>
-                  </div>
-              {% endfor %}
+                </div>
+            {% endfor %}
             </div>
         </main>
-        <footer class="text-center text-white">
-            <div class="container social-media">
-                <section class="accounts">
-                    <!-- Facebook -->
-                    <a class="btn btn-floating m-1" href="#!" role="button"><img class="social-icon" src="{% static 'images/facebook.png' %}" alt="facebook"></a>
-                    <!-- Twitter -->
-                    <a class="btn btn-floating m-1" href="#!" role="button"><img class="social-icon" src="{% static 'images/twitter.png' %}" alt="twitter"></a>
-                    <!-- Instagram -->
-                    <a class="btn btn-floating m-1" href="#!" role="button"><img class="social-icon" src="{% static 'images/instagram.png' %}" alt="instagram"></a>
-                </section>
-            </div>
-            <!-- Copyright -->
-            <div class="text-center copyright">
-                <p>© 2022 Copyright: Meshwar</p>
-            </div>
-        </footer>
 </body>
 </html>

@@ -39,6 +39,10 @@ def log_out(request):
     if request.session['first_name']:
         del request.session['first_name']
         del request.session['id']
+        try:
+            del request.session['random_activity_id']
+        except:
+            pass
     return redirect('/')
 
 def log_in(request):
