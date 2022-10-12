@@ -4,6 +4,9 @@ main {
 h1 {
     margin: 50px;
 }
+h2 {
+    margin: 30px;
+}
 h1, h2, h3, h5, h6 {
     color: #326B9A;
     font-weight: 900;
@@ -46,5 +49,6 @@ span {
     width: 200px;
     height: 200px;
     border-radius: 50%;
+    border: 3px #E0FF4F solid;
     margin-bottom: 20px;
 }
