@@ -57,21 +57,26 @@
     <main>
             <div class="card">
                 <div class="card-body">
-                    <h2 class="card-title">Activity Title{{activity.title}}</h2>
-                    <h5 class="card-subtitle mb-2">Added by: {{activity.added_by.first_name}}</h5>
+                    <h2 class="card-title">Activity Title: {{activity.title}}</h2>
+                    <h5 class="card-subtitle mb-2">Added by: {{activity.added_by.first_name}} {{activity.added_by.last_name}}</h5>
+                    {% if activity.start_date %}
                     <div class="dates">
                         <img src="{% static 'images/calendar.png' %}" class="calendar-img" alt="calendar icon">
-                        <h5>{{activity.start_date}}start date - end date{{activity.end_date}}</h5>
+                        <h5>{{activity.start_date}} - {{activity.end_date}}</h5>
                     </div>
+                    {% endif %}
                     <h5>Location: {{activity.location}} - {{activity.city.name}}</h5>
                     <h5>Price: {{activity.price}} ₪</h5>
-                    <p class="card-text">Eu incididunt elit elit eu fugiat commodo cillum sunt est in veniam. Laboris sunt cupidatat aliquip nostrud est magna qui reprehenderit cillum eu consequat. Minim ut eiusmod do ipsum mollit commodo aliquip. Eiusmod nostrud velit ea sunt cillum ullamco irure officia tempor aliquip aute. Commodo ut Lorem reprehenderit amet duis reprehenderit sunt.{{activity.desc}}</p>
-                    <a href="#" class="card-link">Edit</a>
-                    <a href="#" class="card-link remove">Remove</a>
+                    <p class="card-text">{{activity.desc}}</p>
+                    {% if user.id == activity.added_by.id %}
+                    <a href="/dashboard/edit/{{ activity.id }}" class="card-link">Edit</a>
+                    <a href="/dashboard/delete/{{ activity.id }}" class="card-link remove">Remove</a>
+                    {% else %}
                     <div class="vote">
-                        <a href="/"><img src="{% static 'images/vote-up.png' %}" alt="vote up"></a><span>5</span>
-                        <a href="/"><img src="{% static 'images/vote-down.png' %}" alt="vote down"></a><span>5</span> 
+                        <a href="/dashboard/like_activity/{{ activity.id }}/"><img src="{% static 'images/vote-up.png' %}" alt="vote up"></a><span>{{ activity.users_who_like.count }}</span>
+                        <a href="/dashboard/dislike_activity/{{ activity.id }}/"><img src="{% static 'images/vote-down.png' %}" alt="vote down"></a><span>{{ activity.users_who_dislike.count }}</span> 
                     </div>
+                    {% endif %}
                 </div>
             </div>
     </main>
