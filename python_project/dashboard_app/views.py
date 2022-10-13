@@ -178,9 +178,12 @@ def like_activity(request, activity_id):
     try:
         logged_user = User.objects.get(id = request.session['id'])
         liked_activity = Activity.objects.get(id = activity_id)
+        if liked_activity in logged_user.liked_activities.all():
+            logged_user.liked_activities.remove(liked_activity)
+        else:
+            logged_user.liked_activities.add(liked_activity)
         if liked_activity in logged_user.disliked_activities.all():
             logged_user.disliked_activities.remove(liked_activity)
-        logged_user.liked_activities.add(liked_activity)
         return redirect(f'/dashboard/show/{liked_activity.id}')
     except:
         return redirect('/')
@@ -191,9 +194,12 @@ def dislike_activity(request, activity_id):
     try:
         logged_user = User.objects.get(id = request.session['id'])
         disliked_activity = Activity.objects.get(id = activity_id)
+        if disliked_activity in logged_user.disliked_activities.all():
+            logged_user.disliked_activities.remove(disliked_activity)
+        else:
+            logged_user.disliked_activities.add(disliked_activity)
         if disliked_activity in logged_user.liked_activities.all():
             logged_user.liked_activities.remove(disliked_activity)
-        logged_user.disliked_activities.add(disliked_activity)
         return redirect(f'/dashboard/show/{disliked_activity.id}')
     except:
         return redirect('/')
