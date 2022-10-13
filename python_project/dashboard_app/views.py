@@ -37,6 +37,7 @@ def show_profile(request, user_id):
             'all_cities' : City.objects.all(),
             'user_activities': logged_user.activities_added.all(),
             'user': logged_user,
+            'liked_activities': logged_user.liked_activities.all(), 
         }
         if logged_user.id == user_id:
             return render(request, 'profile.html', context)

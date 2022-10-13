@@ -57,27 +57,55 @@
             </div>
         </div>
     </nav>
-    <header>
-        <h1><span>Welcome, </span><span>{{user.first_name}} {{user.last_name}}</span></h1>
-    </header>
-    <div>
-        <h2>Your Activities</h2>
-    </div>
-        <main>
-            <div class="container all-activities ">
-            {% for activity in user_activities %}
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">{{ activity.title }}</h5>
-                        <h6 class="card-subtitle mb-2">Added by: {{ activity.added_by.first_name }} {{ activity.added_by.last_name }}</h6>
-                        <div class="desc">
-                            <p class="card-text">{{ activity.desc }}</p>
-                        </div>
-                        <a href="/dashboard/show/{{activity.id}}/" class="card-link">View</a>
+    <main>
+        <header>
+            <h1><span>Welcome, </span><span>{{user.first_name}} {{user.last_name}}</span></h1>
+        </header>
+        <h2 class="text-center">Your Activities</h2>
+        <div class="container all-activities ">
+        {% for activity in user_activities %}
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">{{ activity.title }}</h5>
+                    <h6 class="card-subtitle mb-2">Location: {{ activity.location }} - {{ activity.city.name }}</h6>
+                    <div class="desc">
+                        <p class="card-text">{{ activity.desc }}</p>
                     </div>
+                    <a href="/dashboard/show/{{activity.id}}/" class="card-link">View</a>
                 </div>
-            {% endfor %}
             </div>
+        {% endfor %}
+        </div>
+        <h2 class="text-center">Your Liked Activities</h2>
+        <div class="container all-activities ">
+        {% for activity in liked_activities %}
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">{{ activity.title }}</h5>
+                    <h6 class="card-subtitle mb-2">Added by: {{ activity.added_by.first_name }} {{ activity.added_by.last_name }}</h6>
+                    <div class="desc">
+                        <p class="card-text">{{ activity.desc }}</p>
+                    </div>
+                    <a href="/dashboard/show/{{activity.id}}/" class="card-link">See more</a>
+                </div>
+            </div>
+        {% endfor %}
+        </div>
         </main>
+        <footer id="footer">
+            <div class="container">
+                <section class="accounts">
+                    <!-- Facebook -->
+                    <a class="btn btn-floating m-1" href="#!" role="button"><img class="social-icon" src="{% static 'images/facebook.png' %}" alt="facebook"></a>
+                    <!-- Twitter -->
+                    <a class="btn btn-floating m-1" href="#!" role="button"><img class="social-icon" src="{% static 'images/twitter.png' %}" alt="twitter"></a>
+                    <!-- Instagram -->
+                    <a class="btn btn-floating m-1" href="#!" role="button"><img class="social-icon" src="{% static 'images/instagram.png' %}" alt="instagram"></a>
+                </section>
+                <div class="copyright">
+                    &copy; Copyright <strong>Meshwar</strong>. All Rights Reserved
+                </div>
+            </div>
+        </footer>
 </body>
 </html>
