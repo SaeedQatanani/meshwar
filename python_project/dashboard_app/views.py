@@ -223,6 +223,9 @@ def show_random(request):
 def pick_random(request):
     city_id = int(request.POST['city'])
     activities = City.objects.get(id =city_id).activities.all()
-    random_activity= random.choice(activities)
-    request.session['random_activity_id'] = random_activity.id
-    return redirect('/dashboard/random')
+    try:
+        random_activity= random.choice(activities)
+        request.session['random_activity_id'] = random_activity.id
+        return redirect('/dashboard/random')
+    except:
+        return redirect('/dashboard/random')
