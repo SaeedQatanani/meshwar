@@ -58,21 +58,28 @@
         </div>
     </nav>
     <main>
-            <h1 class="text-center">{{city.name}}</h1>
-            <div class="container all-activities">
-                {% for activity in city_activities %}
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">{{ activity.title }}</h5>
-                        <h6 class="card-subtitle mb-2">Added by: {{ activity.added_by.first_name }} {{ activity.added_by.last_name }}</h6>
-                        <div class="desc">
-                            <p class="card-text">{{ activity.desc }}</p>
-                        </div>
-                        <a href="/dashboard/show/{{activity.id}}/" class="card-link">See more</a>
+        <h1 class="text-center">{{city.name}}</h1>
+        <div class="container all-activities">
+            {% if city_activities %}
+            {% for activity in city_activities %}
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">{{ activity.title }}</h5>
+                    <h6 class="card-subtitle mb-2">Added by: {{ activity.added_by.first_name }} {{ activity.added_by.last_name }}</h6>
+                    <div class="desc">
+                        <p class="card-text">{{ activity.desc }}</p>
                     </div>
+                    <a href="/dashboard/show/{{activity.id}}/" class="card-link">See more</a>
                 </div>
-                {% endfor %}
             </div>
+            {% endfor %}
+            {% else %}
+            <div class="text-center">
+                <h4>There are no activities to show in this city</h4>
+                <a href="/dashboard/new/" class="btn btn-primary">Add an activity!</a>
+            </div>
+            {% endif %}
+        </div>
     </main>
     <footer id="footer">
         <div class="container">

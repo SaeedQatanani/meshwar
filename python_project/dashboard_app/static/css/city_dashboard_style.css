@@ -12,6 +12,10 @@ h6 {
     font-size: 0.95rem;
     line-height: 25px;
 }
+h4 {
+    color: #FF4949;
+    margin: 50px 0 30px 0;
+}
 .all-activities {
     display: flex;
     align-items: center;
@@ -41,4 +45,12 @@ h6 {
 }
 .card-link {
     line-height: 40px;
+}
+.btn-primary, .btn-primary:active, .btn-primary:visited {
+    background-color: #FF4949;
+    border: none;
+}
+.btn-primary:hover {
+    background-color: #326B9A;
+    border: none;
 }
