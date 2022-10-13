@@ -13,9 +13,14 @@ main {
     border-radius: 20px;
     background-color: white;
 }
+@media all and (max-width: 1080px) {
+    .add-activity-form {
+        width: 60%;
+    }
+}
 @media all and (max-width: 720px) {
     .add-activity-form {
-        width: 80%;
+        width: 90%;
     }
 }
 h2 {

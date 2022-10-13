@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Show Activity</title>
+    <title>{{activity.title}}</title>
     {% load static %}
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
@@ -60,7 +60,7 @@
     <main>
             <div class="card">
                 <div class="card-body">
-                    <h2 class="card-title">Activity Title: {{activity.title}}</h2>
+                    <h2 class="card-title">{{activity.title}}</h2>
                     <h5 class="card-subtitle mb-2">Added by: {{activity.added_by.first_name}} {{activity.added_by.last_name}}</h5>
                     {% if activity.start_date %}
                     <div class="dates">
@@ -71,17 +71,21 @@
                     <h5>Location: {{activity.location}} - {{activity.city.name}}</h5>
                     <h5>Price: {{activity.price}} ₪</h5>
                     <p class="card-text">{{activity.desc}}</p>
-                    {% if user.id == activity.added_by.id %}
-                    <a href="/dashboard/edit/{{ activity.id }}" class="card-link">Edit</a>
-                    <a href="/dashboard/delete/{{ activity.id }}" class="card-link remove">Remove</a>
-                    {% else %}
-                    <div class="vote">
-                        <a href="/dashboard/like_activity/{{ activity.id }}/"><img src="{% static 'images/vote-up.png' %}" alt="vote up"></a><span>{{ activity.users_who_like.count }}</span>
-                        <a href="/dashboard/dislike_activity/{{ activity.id }}/"><img src="{% static 'images/vote-down.png' %}" alt="vote down"></a><span>{{ activity.users_who_dislike.count }}</span> 
+                    <div class="settings_vote">
+                        <div class="vote">
+                            <a href="/dashboard/like_activity/{{ activity.id }}/"><img src="{% static 'images/vote-up.png' %}" alt="vote up" onmouseover="addShadow(this)" onmouseleave="removeShadow(this)"></a><span>{{ activity.users_who_like.count }}</span>
+                            <a href="/dashboard/dislike_activity/{{ activity.id }}/"><img src="{% static 'images/vote-down.png' %}" alt="vote down" onmouseover="addDown(this)" onmouseleave="removeDown(this)"></a><span>{{ activity.users_who_dislike.count }}</span> 
+                        </div>
+                        <div class="settings">
+                            {% if user.id == activity.added_by.id %}
+                            <a href="/dashboard/edit/{{ activity.id }}" class="card-link">Edit</a>
+                            <a href="/dashboard/delete/{{ activity.id }}" class="card-link remove">Remove</a>
+                            {% endif %}
+                        </div>
                     </div>
-                    {% endif %}
                 </div>
             </div>
     </main>
+    <script src="{% static 'js/show_activity_script.js' %}"></script>
 </body>
 </html>
