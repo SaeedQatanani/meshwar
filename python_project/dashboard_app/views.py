@@ -22,7 +22,7 @@ def city_dashboard(request, city_id):
         context = {
             "all_cities": City.objects.all(),
             "city": City.objects.get(id=city_id),
-            "city_activities": City.objects.get(id=city_id).activities.all(),
+            "city_activities": City.objects.get(id=city_id).activities.all().order_by('-updated_at'),
         }
         return render(request, 'city_dashboard.html', context)
     except:
@@ -35,9 +35,9 @@ def show_profile(request, user_id):
         logged_user = User.objects.get(id = request.session['id'])
         context = {
             'all_cities' : City.objects.all(),
-            'user_activities': logged_user.activities_added.all(),
+            'user_activities': logged_user.activities_added.all().order_by('-updated_at'),
             'user': logged_user,
-            'liked_activities': logged_user.liked_activities.all(), 
+            'liked_activities': logged_user.liked_activities.all().order_by('-updated_at'), 
         }
         if logged_user.id == user_id:
             return render(request, 'profile.html', context)
