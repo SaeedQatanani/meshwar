@@ -228,4 +228,8 @@ def pick_random(request):
         request.session['random_activity_id'] = random_activity.id
         return redirect('/dashboard/random')
     except:
-        return redirect('/dashboard/random')
+        try:
+            del request.session['random_activity_id']
+            return redirect('/dashboard/random')
+        except:
+            return redirect('/dashboard/random')
