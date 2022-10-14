@@ -1,4 +1,5 @@
 from django.urls import path
+from django.conf.urls import url
 from . import views
 
 urlpatterns = [
@@ -9,4 +10,5 @@ urlpatterns = [
     path('logout/', views.log_out),
     path('login/', views.log_in),
     path('delete_all/', views.delete_all),
+    url(r'^ajax/validate_email/$', views.validate_email, name='validate_email'),
 ]
