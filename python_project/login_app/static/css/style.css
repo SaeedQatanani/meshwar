@@ -51,3 +51,12 @@ form {
 .alert {
     margin: 20px;
 }
+#check-email{
+    color:red;
+}
+#matches{
+    color:green;
+}
+#doesnt-match{
+    color:red;
+}

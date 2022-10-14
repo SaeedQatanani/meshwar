@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
+from django.http import JsonResponse
 from .models import User
 import bcrypt
 
@@ -27,6 +28,13 @@ def add_user(request):
         request.session['first_name'] = request.POST['first_name']
         request.session['id'] = User.objects.get(email = request.POST['email']).id
         return redirect('/success')
+
+def validate_email(request):
+    email = request.GET.get('email', None)
+    data = {
+        'is_taken': User.objects.filter(email__iexact=email).exists()
+    }
+    return JsonResponse(data)
 
 def render_success(request):
     try:
