@@ -30,9 +30,65 @@ This project was deployed using AWS
 
 
 ## Demo
+**User Registration:**
 
-Insert gif or link to demo
+We used server side validation to make sure data is entered correctly in the corresponding fields.
 
+![](https://github.com/karam-taha/gifs-test/blob/master/gifs/register%20validation.gif)
+
+E-mail and password field validation is implemented using AJAX, validations are done in real time to check if e-mail is already registered and if passwords match.
+
+![](https://github.com/karam-taha/gifs-test/blob/master/gifs/email%20and%20password%20ajax.gif)
+
+---
+
+**Dashboard:**
+
+Users can easily navigate between different cities. Clicking on any city leads to its corresponding city dashboard. 
+
+![](https://github.com/karam-taha/gifs-test/blob/master/gifs/dashboard.gif)
+
+---
+
+**Create Activity:**
+
+Users can add an activity, with the date being optional. They have to specify the city using a dropdown menu. 
+
+![](https://github.com/karam-taha/gifs-test/blob/master/gifs/create%20activity.gif)
+
+---
+
+**View Activity:**
+
+Users can view each activity to see more details. If this activity was added by them, they can edit or remove it. If not, they can only up-vote or down-vote. 
+
+![](https://github.com/karam-taha/gifs-test/blob/master/gifs/view%20activity%20and%20upvote.gif)
+
+---
+
+**Edit Activity:**
+
+Users can modify the information of activities they previously added. The same validations apply as when creating the activity. 
+
+![](https://github.com/karam-taha/gifs-test/blob/master/gifs/updating%20activity.gif)
+
+---
+
+**Profile:**
+
+Users can check their profile for content they added, and access this content to edit or remove it. They can also see the content they “up-voted” or liked.
+
+![](https://github.com/karam-taha/gifs-test/blob/master/gifs/view%20profile.gif)
+
+---
+
+**Random generator:**
+
+Users have the option to receive a random activity in their desired city.
+
+![](https://github.com/karam-taha/gifs-test/blob/master/gifs/random.gif)
+
+---
 
 ## Tech Stack
 This project was built using Django framework, and uses the following technologies:
@@ -50,11 +106,15 @@ Different tools were used to plan and manage the project, such as:
 
 | Colors             | Hex                                                                |
 | ----------------- | ------------------------------------------------------------------ |
-| Cultured | ![#F5F5F5](https://via.placeholder.com/10/f5f5f5?text=+) #F5F5F5 |
-| Royal Blue Dark | ![#10316B](https://via.placeholder.com/10/10316B?text=+) #10316B |
-| Queen Blue | ![#326B9A](https://via.placeholder.com/10/326B9A?text=+) #326B9A |
-| Arctic Lime | ![#E0FF4F](https://via.placeholder.com/10/E0FF4F?text=+) #E0FF4F |
-| Tart Orange | ![#FF4949](https://via.placeholder.com/10/FF4949?text=+) #FF4949 |
+| Cultured | ![#F5F5F5](https://via.placeholder.com/15/f5f5f5/f5f5f5.png) `#F5F5F5` |
+| Royal Blue Dark | ![#10316B](https://via.placeholder.com/15/10316B/10316B.png) `#10316B` |
+| Queen Blue | ![#326B9A](https://via.placeholder.com/15/326B9A/326B9A.png) `#326B9A` |
+| Arctic Lime | ![#E0FF4F](https://via.placeholder.com/15/E0FF4F/E0FF4F.png) `#E0FF4F` |
+| Tart Orange | ![#FF4949](https://via.placeholder.com/15/FF4949/FF4949.png) `#FF4949` |
+
+## Logo
+
+![logo](https://github.com/karam-taha/meshwar/blob/master/python_project/dashboard_app/static/images/logo-navy.png)
 
 
 ## Authors
